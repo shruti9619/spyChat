@@ -148,7 +148,7 @@ def send_message():
     output_path = "secretspycat.jpg"
     text = raw_input(colored("Your secret message:",'green','on_grey'))
     try:
-        Steganography.encode(original_img, output_path, text)
+        Steganography.encode(original_img, output_path, '#'+text)
     except:
         print colored("ENCODING UNSUCCESSFUL! MISSION ABORT \n!",'red')
         return
@@ -173,12 +173,14 @@ def read_message():
     except:
         print colored('Wrong Image! No message encoded','red')
         return
-
-    new_chat = ChatMessage(secret_msg,False)
+    if secret_msg[0] == '#':
+        new_chat = ChatMessage(secret_msg[1:], True)
+    else:
+        new_chat=ChatMessage(secret_msg, False)
 
     friends_list[sender].chats.append(new_chat)
 
-    print colored("Your secret message " + secret_msg,'blue')
+    print colored("Your secret message " + secret_msg[1:],'blue')
 
     #generate spy alert when special msg is encountered
     if secret_msg.upper() in SPECIALMSG:
