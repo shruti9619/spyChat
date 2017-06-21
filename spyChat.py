@@ -10,6 +10,7 @@ STATUS_MSGS = ['Make hey while the sun shines', 'Burning desire is something you
                    'Houston! we have a problem!']
 
 
+
 #method definition to add a status or choose from the previous ones
 
 def add_status_message():
@@ -28,8 +29,9 @@ def add_status_message():
         new_status_msg = raw_input(colored("New status please",'green','on_grey'))
 
         if len(new_status_msg)>0:
-            STATUS_MSGS.append(new_status_msg)
-            updated_status_msg = new_status_msg
+            if not new_status_msg.decode('utf-8').isspace():
+                STATUS_MSGS.append(new_status_msg)
+                updated_status_msg = new_status_msg
 
     elif default.upper() == 'Y':
 
@@ -64,7 +66,18 @@ def add_friend():
     new_friend = Spy('', '', 0, 0.0)
 
     new_friend.name = raw_input(colored("Your friend's name: ",'green','on_grey'))
+
+    if new_friend.name.decode('utf-8').isspace():
+        print colored('Friend name not valid! Be smart spy','red')
+        return -1
+
+
     new_friend.salutation = raw_input(colored("Friend's Mr. or Ms.?: ",'green','on_grey'))
+
+
+    if new_friend.salutation.decode('utf-8').isspace():
+        print colored('Friend salutation not valid! Be smart spy','red')
+        return -1
 
 #commented this line because it was making the salutation print twice
     # new_friend.name = new_friend.salutation + " " + new_friend.name
@@ -307,8 +320,14 @@ else:
     spy.name = raw_input(colored("SpyChat welcomes you, your spy name please: ",'green','on_grey'))
 
     if len(spy.name) > 0:
+        if spy.name.decode('utf-8').isspace():
+            print colored('Spy name not valid! Be smart next time spy', 'red')
+            exit(0)
         spy.salutation = raw_input(colored("Great! Mr. or Ms.?: ",'green','on_grey'))
-
+        if len(spy.salutation) > 0:
+            if spy.salutation.decode('utf-8').isspace():
+                print colored('Spy salutation not valid! Be smart next time spy', 'red')
+                exit(0)
         spy.age = raw_input(colored("Your age please?",'green','on_grey'))
 
 
@@ -329,7 +348,7 @@ else:
 
         start_chat(spy)
     else:
-        print colored("The rating has to be numerical Spy! Be smart next time! \n Bye!",'red')
+        print colored("No nameless spy allowed! Be smart next time! \n Bye!",'red')
         exit(0)
 
 
