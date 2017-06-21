@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/spyChat.py" line="308" mnemonic="3" />
+    <bookmark url="file://$PROJECT_DIR$/spyChat.py" line="311" mnemonic="3" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="276ceccd-d6cf-4a10-9e75-194c85dd4539" name="Default" comment="" />
+    <list default="true" id="276ceccd-d6cf-4a10-9e75-194c85dd4539" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/spyChat.py" afterPath="$PROJECT_DIR$/spyChat.py" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -31,8 +34,8 @@
       <file leaf-file-name="spyChat.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/spyChat.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="240" column="0" lean-forward="true" selection-start-line="240" selection-start-column="0" selection-end-line="240" selection-end-column="0" />
+            <state relative-caret-position="-238">
+              <caret line="177" column="114" lean-forward="false" selection-start-line="177" selection-start-column="114" selection-end-line="177" selection-end-column="114" />
               <folding>
                 <element signature="e#0#59#0" expanded="true" />
               </folding>
@@ -323,7 +326,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="784" extended-state="7" />
+    <frame x="-8" y="-8" width="1382" height="784" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18229954" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -583,8 +586,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/spyChat.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="240" column="0" lean-forward="true" selection-start-line="240" selection-start-column="0" selection-end-line="240" selection-end-column="0" />
+        <state relative-caret-position="-238">
+          <caret line="177" column="114" lean-forward="false" selection-start-line="177" selection-start-column="114" selection-end-line="177" selection-end-column="114" />
           <folding>
             <element signature="e#0#59#0" expanded="true" />
           </folding>

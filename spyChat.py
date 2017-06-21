@@ -173,6 +173,9 @@ def read_message():
     except:
         print colored('Wrong Image! No message encoded','red')
         return
+
+    #checking for this hash as after the msg is encoded there's no track who sent the msg once image is encoded. When
+    # the image is decoded if hash is there in the first letter then it was semt by the user otherwise by a friend
     if secret_msg[0] == '#':
         new_chat = ChatMessage(secret_msg[1:], True)
     else:
