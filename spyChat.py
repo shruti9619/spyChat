@@ -33,7 +33,7 @@ def add_status_message():
                 STATUS_MSGS.append(new_status_msg)
                 updated_status_msg = new_status_msg
 
-    elif default.upper() == 'Y':
+    elif default[0].upper() == 'Y':
 
         item_position = 1
 
@@ -253,6 +253,32 @@ def remove_friend():
     frnd_pos=select_a_friend()
     del friends_list[frnd_pos]
     return len(friends_list)
+#######################################################################################################################
+
+# delete a status from the list
+def remove_status():
+    ansint=-1
+    if len(STATUS_MSGS) != 0:
+        itemno=0;
+        for msg in STATUS_MSGS:
+            print colored("%d. %s" %(itemno+1,msg),'green','on_grey')
+            itemno+=1
+        ansr = raw_input(colored("Select a status to delete", 'green', 'on_grey'))
+
+        try:
+            ansint=int(ansr)
+            ansint-=1
+        except:
+            print colored("Wrong input spy! Be smart except",'red')
+
+        if ansint >- 1 and ansint < len(STATUS_MSGS):
+            del STATUS_MSGS[ansint]
+        else:
+            print colored("Wrong input spy! Be smart", 'red')
+
+    else:
+        print colored("No status messages found!",'red')
+
 
 
 #######################################################################################################################
@@ -277,7 +303,7 @@ def start_chat(spy):
         while show_menu:
             menu = "Your Spy tools  \n 1. Add a status update \n 2. Add a friend \n 3. Send a secret message " \
                    "\n 4. Read a secret message \n 5. Read Chats from a user \n 6. List all the friends \n "\
-                   "7. Remove Friend \n 8. Close Application \n"
+                   "7. Remove Friend \n 8. Remove older status  \n 9. Close Application \n"
             menu_choice = raw_input(colored(menu,'green','on_grey'))
 
             if len(menu_choice) > 0:
@@ -299,6 +325,8 @@ def start_chat(spy):
                     read_friends()
                 elif menu_choice == 7:
                     remove_friend()
+                elif menu_choice == 8:
+                    remove_status()
                 else:
                     print colored('Pleasure to assist a world class Spy.','green','on_grey')
                     show_menu = False
@@ -334,7 +362,7 @@ else:
         if spy.name.decode('utf-8').isspace():
             print colored('Spy name not valid! Be smart next time spy', 'red')
             exit(0)
-            
+
         spy.salutation = raw_input(colored("Great! Mr. or Ms.?: ",'green','on_grey'))
 
         if len(spy.salutation) > 0:
