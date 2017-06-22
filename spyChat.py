@@ -25,7 +25,7 @@ def add_status_message():
 
     default = raw_input(colored("Choose from the older status (y/n)? ",'green','on_grey'))
 
-    if default.upper() == "N":
+    if default[0].upper() == "N":
         new_status_msg = raw_input(colored("New status please",'green','on_grey'))
 
         if len(new_status_msg)>0:
@@ -67,18 +67,24 @@ def add_friend():
 
     new_friend.name = raw_input(colored("Your friend's name: ",'green','on_grey'))
 
-    if new_friend.name.decode('utf-8').isspace():
-        print colored('Friend name not valid! Be smart spy','red')
-        return -1
+    if len(new_friend.name) > 0:
+        if new_friend.name.decode('utf-8').isspace():
+            print colored('Friend name not valid! Be smart spy','red')
+            return -1
 
+    else:
+        print colored("A nameless friend is not allowed! Try again spy.",'red');
+        return -1
 
     new_friend.salutation = raw_input(colored("Friend's Mr. or Ms.?: ",'green','on_grey'))
 
-
-    if new_friend.salutation.decode('utf-8').isspace():
+    if len(new_friend.salutation) > 0:
+        if new_friend.salutation.decode('utf-8').isspace():
+            print colored('Friend salutation not valid! Be smart spy','red')
+            return -1
+    else:
         print colored('Friend salutation not valid! Be smart spy','red')
         return -1
-
 #commented this line because it was making the salutation print twice
     # new_friend.name = new_friend.salutation + " " + new_friend.name
 
@@ -128,7 +134,7 @@ def select_a_friend():
             friend_choice_pos=select_a_friend()
     else:
         addfrnd = raw_input( colored("Add a friend first (y/n)!",'green','on_grey'))
-        if addfrnd.upper()=='Y':
+        if addfrnd[0].upper()=='Y':
             add_friend()
             friend_choice_pos=select_a_friend()
         else:
@@ -216,7 +222,7 @@ def read_friends():
             item_num = item_num + 1
     else:
         addfrnd = raw_input(colored("No Friend found! Add a friend first (y/n)!",'red'))
-        if addfrnd.upper() == 'Y':
+        if addfrnd[0].upper() == 'Y':
             add_friend()
         else:
             print colored("No friends found!",'red')
@@ -313,7 +319,7 @@ ques = "Continue as " + spy.salutation + " " + spy.name + " (Y/N)? "
 ans = raw_input(colored(ques,'green','on_grey'))
 
 #if user wants to continue with the same old name set by default
-if ans.upper() == "Y":
+if ans[0].upper() == "Y":
     start_chat(spy)
 
 #if user wants to create a new identity
@@ -328,7 +334,9 @@ else:
         if spy.name.decode('utf-8').isspace():
             print colored('Spy name not valid! Be smart next time spy', 'red')
             exit(0)
+            
         spy.salutation = raw_input(colored("Great! Mr. or Ms.?: ",'green','on_grey'))
+
         if len(spy.salutation) > 0:
             if spy.salutation.decode('utf-8').isspace():
                 print colored('Spy salutation not valid! Be smart next time spy', 'red')
